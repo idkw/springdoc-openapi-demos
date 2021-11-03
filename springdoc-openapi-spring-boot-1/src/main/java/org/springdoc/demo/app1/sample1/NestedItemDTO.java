@@ -16,18 +16,32 @@
  *
  */
 
-package org.springdoc.demo.app1.sample2;
+package org.springdoc.demo.app1.sample1;
 
-public final class ApiException extends Exception {
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
-	private static final long serialVersionUID = 1L;
+import java.io.Serializable;
+import java.util.Map;
 
-	@SuppressWarnings("unused")
+/**
+ * @author 472957
+ */
+public class NestedItemDTO implements Serializable {
 
-	private final int code;
+	private Map<String, String> values;
 
-	public ApiException(int code, String msg) {
-		super(msg);
-		this.code = code;
+	/**
+	 *
+	 */
+	public NestedItemDTO() {
+	}
+
+	@JsonAnyGetter
+	public Map<String, String> getValues() {
+		return values;
+	}
+
+	public void setValues(Map<String, String> values) {
+		this.values = values;
 	}
 }
